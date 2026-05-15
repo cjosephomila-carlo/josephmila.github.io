@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Omila | IT Professional & Project Supervisor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f1419;
+            --secondary: #1a1f2e;
+            --accent: #1e3a5f;
+            --highlight: #00d4ff;
+            --accent-2: #ff6b6b;
+            --text-light: #f0f4f8;
+            --text-muted: #a0aec0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 20, 25, 0.98);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--highlight);
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: var(--highlight);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 2rem;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -300px;
+            right: -300px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -200px;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 10;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--highlight) 0%, #00a8cc 50%, var(--text-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--highlight);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--highlight) 0%, #00a8cc 100%);
+            color: #000;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-right: 1rem;
+            border: 2px solid var(--highlight);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+            background: transparent;
+            color: var(--highlight);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--highlight);
+            color: var(--highlight);
+        }
+
+        .cta-button.secondary:hover {
+            background: linear-gradient(135deg, var(--highlight) 0%, #00a8cc 100%);
+            color: #000;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--highlight), var(--accent-2));
+            border-radius: 3px;
+        }
+
+        /* About Section */
+        #about {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--highlight);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            line-height: 1.9;
+            font-size: 1rem;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.15);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 212, 255, 0.25);
+        }
+
+        /* Experience Section */
+        #experience {
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.4) 0%, rgba(0, 212, 255, 0.05) 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(180deg, var(--highlight), var(--accent-2));
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+            border-color: var(--highlight);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+        }
+
+        .experience-card h3 {
+            color: var(--highlight);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .experience-card .company {
+            color: var(--accent-2);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-card .dates {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .experience-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(30, 58, 95, 0.3);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.15);
+        }
+
+        .skill-category h3 {
+            color: var(--highlight);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: var(--highlight);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-3px);
+            border-color: var(--highlight);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Projects Section */
+        #projects {
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(30, 58, 95, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-icon {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(0, 212, 255, 0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: var(--highlight);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 107, 107, 0.15);
+            color: var(--accent-2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            font-weight: 600;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--highlight);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        /* Education Section */
+        #education {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: rgba(30, 58, 95, 0.3);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-left: 4px solid var(--highlight);
+        }
+
+        .education-card h3 {
+            color: var(--highlight);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .education-card .institution {
+            color: var(--accent-2);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-card .year {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: rgba(255, 255, 255, 0.02);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: var(--highlight);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 25px;
+            display: inline-block;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            border-color: var(--highlight);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.15);
+            color: var(--text-muted);
+            background: rgba(15, 20, 25, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                margin-bottom: 1rem;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Joseph Omila</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Joseph Omila</h1>
+            <div class="subtitle">IT Professional & Project Supervisor</div>
+            <p>Experienced IT infrastructure specialist with 8+ years of hands-on expertise in network systems, CCTV installations, and structured cabling. Skilled in project supervision, team coordination, and delivering complex IT solutions that drive business success.</p>
+            <div>
+                <a href="#contact" class="cta-button">Get In Touch</a>
+                <a href="#projects" class="cta-button secondary">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Who I Am</h3>
+                <p>I'm a Computer Engineering student graduating in 2026 from Envarga University, with 8+ years of hands-on experience in IT infrastructure and network systems. As a Project Site Supervisor at Network Lab Computer Solution Corp., I lead teams in designing and implementing enterprise-level CCTV, structured cabling, and IT equipment solutions.</p>
+                <p>My expertise spans network configuration, system integration, and project management. I'm passionate about delivering reliable, scalable IT infrastructure that meets client needs and exceeds expectations.</p>
+                <p>When I'm not working on IT projects, I enjoy exploring new technologies and staying current with industry trends. Let's collaborate and build something remarkable together!</p>
+            </div>
+            <div class="about-image">
+                <img src="profile.jpg" alt="Joseph Omila">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h3>Project Site Supervisor</h3>
+                <div class="company">Network Lab Computer Solution Corp.</div>
+                <div class="dates">January 2023 – Present</div>
+                <p>Leading supervision of large-scale IT infrastructure projects including CCTV camera installations, structured cabling deployment, and door access system implementation. Coordinating cross-functional teams, ensuring project timelines are met, and maintaining safety compliance on-site. Manages 50+ camera CCTV projects and oversees installation of network equipment across multiple client sites.</p>
+            </div>
+            <div class="experience-card">
+                <h3>Technical Staff</h3>
+                <div class="company">Network Lab Computer Solution Corp.</div>
+                <div class="dates">July 2019 – January 2023</div>
+                <p>Handled installation and configuration of complex IT infrastructure including Data Center setup, server configuration, CCTV systems (IP & Analog), door access control systems, and structured cabling. Provided technical support for network devices, switches, and access points. Troubleshot and resolved system issues to maintain optimal performance.</p>
+            </div>
+            <div class="experience-card">
+                <h3>IT Assistant</h3>
+                <div class="company">Market Bingo Corp. (PAGCOR)</div>
+                <div class="dates">November 2016 – January 2019</div>
+                <p>Maintained software and hardware of computer systems and gaming machines. Provided technical support to end-users, performed system diagnostics, and executed preventive maintenance procedures. Ensured business continuity through quick turnaround on technical issues.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>🌐 Networking</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">LAN/WAN Setup</span>
+                    <span class="skill-tag">VLAN Configuration</span>
+                    <span class="skill-tag">Switch Setup</span>
+                    <span class="skill-tag">Access Points</span>
+                    <span class="skill-tag">Network Security</span>
+                    <span class="skill-tag">Network Monitoring</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>📹 Security Systems</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">CCTV (IP/Analog)</span>
+                    <span class="skill-tag">NVR/DVR Setup</span>
+                    <span class="skill-tag">Door Access Systems</span>
+                    <span class="skill-tag">Biometric Systems</span>
+                    <span class="skill-tag">RAID Configuration</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🔧 Infrastructure</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Structured Cabling</span>
+                    <span class="skill-tag">Fiber Optics</span>
+                    <span class="skill-tag">Data Center Setup</span>
+                    <span class="skill-tag">Server Installation</span>
+                    <span class="skill-tag">Hardware Maintenance</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🎨 Design & Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AutoCAD 2D/3D</span>
+                    <span class="skill-tag">Microsoft Office</span>
+                    <span class="skill-tag">Project Planning</span>
+                    <span class="skill-tag">Troubleshooting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Key Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon">📹</div>
+                <div class="project-content">
+                    <h3>Enterprise CCTV Systems</h3>
+                    <p>Designed and installed comprehensive CCTV surveillance systems with 50+ IP cameras across multiple client facilities. Configured NVR systems for 24/7 monitoring and integrated with access control systems.</p>
+                    <div class="project-tags">
+                        <span class="tag">CCTV Installation</span>
+                        <span class="tag">NVR Setup</span>
+                        <span class="tag">IP Configuration</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-icon">🔌</div>
+                <div class="project-content">
+                    <h3>Structured Cabling Projects</h3>
+                    <p>Executed large-scale structured cabling installations including UTP and Fiber optic networks. Managed cable management, testing, and documentation for enterprise clients requiring high-speed data transmission.</p>
+                    <div class="project-tags">
+                        <span class="tag">Cabling</span>
+                        <span class="tag">Fiber Optics</span>
+                        <span class="tag">Network Infrastructure</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-icon">🏢</div>
+                <div class="project-content">
+                    <h3>Data Center Setup</h3>
+                    <p>Planned and implemented data center infrastructure including server installation, UPS systems, and environmental controls. Configured networking equipment and established redundancy for business continuity.</p>
+                    <div class="project-tags">
+                        <span class="tag">Data Center</span>
+                        <span class="tag">Server Setup</span>
+                        <span class="tag">Infrastructure</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education & Certifications</h2>
+        <div class="education-grid">
+            <div class="education-card">
+                <h3>Computer Engineering</h3>
+                <div class="institution">Envarga University, Lucena City</div>
+                <div class="year">Graduating 2026</div>
+            </div>
+            <div class="education-card">
+                <h3>High School Diploma</h3>
+                <div class="institution">Cabuyao National High School</div>
+                <div class="year">Graduated April 2014</div>
+            </div>
+            <div class="education-card">
+                <h3>Professional Training</h3>
+                <div class="institution">AutoCAD 2D & 3D Design | CCNA | OCNA</div>
+                <div class="year">Completed</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <p>I'm always open to exciting opportunities and collaborations. Whether you have a project in mind or just want to connect, feel free to reach out!</p>
+            <div class="contact-links">
+                <a href="mailto:omilajoseph567@gmail.com" class="contact-link">📧 Email</a>
+                <a href="tel:+63282691363" class="contact-link">📱 Call</a>
+            </div>
+            <a href="mailto:omilajoseph567@gmail.com" class="cta-button">Send Me a Message</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Joseph Omila. All rights reserved. | IT Professional & Network Solutions Specialist</p>
+    </footer>
+</body>
+</html>
